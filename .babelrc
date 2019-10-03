@@ -1,13 +1,3 @@
 {
-  "presets": [
-    "@babel/react",
-    [ "@babel/env", { "loose": true } ]
-  ],
-  "env": {
-    "esm": {
-      "presets": [
-        [ "@babel/env", { "loose": true, "modules": false } ]
-      ]
-    }
-  }
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
