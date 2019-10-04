@@ -18,7 +18,7 @@
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
     "prepare": "npm run build",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src ./examples"
   },
   "peerDependencies": {
     "react": ">=16.3"
