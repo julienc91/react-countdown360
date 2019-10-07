@@ -20,21 +20,27 @@ You can find some examples in the [`examples` directory](https://github.com/juli
 
 ### Props
 
+| Name                | Type     | Default                 | Description                                     |
+|---------------------|----------|-------------------------|-------------------------------------------------|
+| `seconds`           | Number   | -                       | Number of seconds for the countdown             |
+| `autoStart`         | Boolean  | `true`                  | Start the countdown immediatly after rendering  |
+| `backgroundColor`   | String   | `'#fff'`                | Color for the center of the circle              |
+| `borderFillColor`   | String   | `'#f11'`                | Color for the filled part of the border         |
+| `borderUnfillColor` | String   | `'#e6e2e7'`             | Color for the unfilled part of the border       |
+| `borderWidth`       | Number   | 20                      | Width in pixels of the border                   |
+| `fontColor`         | String   | `'#111'`                | Font color for the label                        |
+| `fontFamily`        | String   | `'sans-serif'`          | The font to use for the label                   |
+| `fontSize`          | Number   | 45                      | Font size in pixels                             |
+| `fontWeight`        | Number   | 700                     | Font weight for the label                       |
+| `onComplete`        | Function | `undefined`             | A callback called when the countdown is over    |
+| `smooth`            | Bookean  | `false`                 | Update the border once every second or smoothly |
+| `unit`              | Array    | `['second', 'seconds']` | The label of the unit (singular and plural)     |
+| `width`             | Number   | 200                     | Width in pixels of the countdown to render      |
 
-| Name          | Type     | Default        | Description                                     |
-|---------------|----------|----------------|-------------------------------------------------|
-| `seconds`     | Number   | -              | Number of seconds for the countdown             |
-| `radius`      | Number   | 15.5           | Radius in pixels of the countdown to render     |
-| `strokeStyle` | String   | `'#477050'`    | Color of the border                             |
-| `strokeWidth` | Number   |                | Width in pixels of the border                   |
-| `fillStyle`   | String   | `'#8ac575'`    | Color of the center                             |
-| `fontColor`   | String   | `'#477050'`    | Font color for the label                        |
-| `fontFamily`  | String   | `'sans-serif'` | The font to use for the label                   |
-| `fontWeight`  | Number   | 700            | Font weight for the label                       |
-| `smooth`      | Bookean  | `false`        | Update the border once every second or smoothly |
-| `autostart`   | Boolean  | `true`         | Start the countdown immediatly after rendering  |
-| `onComplete`  | Function | -              | A callback called when the countdown is over    |
 
 ### Methods
 
-* `start`: start the countdown (set `autostart` to `false`)
+* `start`: start or resume the countdown
+* `stop`: pause the countdown
+* `addSeconds (Number)`: add or remove (if negative) the given number of seconds to remaining number of seconds
+* `extendTimer (Number)`: add or remove (if negative) the given number of seconds to the total number of seconds
