@@ -96,7 +96,7 @@ class Countdown360 extends React.Component {
 
   render () {
     const { backgroundColor, borderUnfillColor, borderFillColor, borderWidth, smooth, width } = this.props
-    const { fontFamily, fontSize, fontWeight, unit } = this.props
+    const { fontColor, fontFamily, fontSize, fontWeight, unit } = this.props
 
     const { secondsLeft, totalSeconds } = this.state
 
@@ -126,6 +126,7 @@ class Countdown360 extends React.Component {
       background: ${backgroundColor};
       border-radius: 50%;
       box-sizing: border-box;
+      color: ${fontColor};
       display: flex;
       flex-flow: column;
       font-family: ${fontFamily};
