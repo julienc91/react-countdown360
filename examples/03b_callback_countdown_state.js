@@ -11,11 +11,13 @@ class App extends React.Component {
     const { completed } = this.state
     if (!completed) {
       const settings = {
+        backgroundColor: '#fff',
+        borderFillColor: '#111',
+        borderWidth: 10,
         fontColor: '#ff3232',
-        fillStyle: '#fff',
-        strokeStyle: '#111',
+        fontSize: 90,
         seconds: 10,
-        radius: 200
+        width: 400
       }
       return (
         <Countdown360
@@ -25,8 +27,8 @@ class App extends React.Component {
       )
     } else {
       const style = {
-        width: 500,
-        height: 500,
+        width: 400,
+        height: 400,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
