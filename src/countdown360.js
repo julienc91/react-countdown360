@@ -39,6 +39,8 @@ class Countdown360 extends React.Component {
   extendTimer (value) {
     let { secondsLeft, totalSeconds } = this.state
     totalSeconds += value
+    totalSeconds = Math.max(totalSeconds, 0)
+
     secondsLeft = Math.min(secondsLeft, totalSeconds * 1000)
     this.setState({ secondsLeft, totalSeconds })
   }
