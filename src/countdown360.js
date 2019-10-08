@@ -77,16 +77,13 @@ class Countdown360 extends React.Component {
   }
 
   handleTick () {
-    const { lastTick, secondsLeft, started } = this.state
+    const { secondsLeft, started } = this.state
     if (!started || secondsLeft <= 0) {
       return
     }
 
     const now = new Date()
-    if (!lastTick) {
-      this.setState({ lastTick: now })
-      return
-    }
+    const lastTick = this.state.lastTick || now
 
     const diff = Math.abs(now - lastTick)
     const updatedSecondsLeft = Math.max(secondsLeft - diff, 0)
