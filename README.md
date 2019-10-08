@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/julienc91/react-countdown360.svg?branch=master)](https://travis-ci.org/julienc91/react-countdown360)
+[![Coverage Status](https://coveralls.io/repos/github/julienc91/react-countdown360/badge.svg?branch=master)](https://coveralls.io/github/julienc91/react-countdown360?branch=master)
+
 # react-countdown360
 
 A simple and customizable React circular countdown that counts down a number of seconds.
