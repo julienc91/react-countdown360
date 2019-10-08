@@ -110,8 +110,6 @@ class Countdown360 extends React.Component {
     const x = angle >= 180 ? (90 - (360 - angle)) : 90
     const y = angle >= 180 ? 90 : (-90 + angle)
 
-    console.log(angle, x, y)
-
     const Wrapper = styled.div`
       align-items: center;
       background-image: linear-gradient(${x}deg, ${angle >= 180 ? borderFillColor : borderUnfillColor} 50%, transparent 50%), linear-gradient(${y}deg, ${borderUnfillColor} 50%, ${borderFillColor} 50%);
