@@ -3,13 +3,14 @@ import renderer from 'react-test-renderer'
 import Countdown360 from '../src'
 
 test('Initialization of totalSeconds', () => {
-  const seconds = 42
-  const component = renderer.create(
-    <Countdown360 seconds={seconds}/>
-  )
-  const instance = component.getInstance()
-  expect(instance.state.totalSeconds).toBe(seconds)
-  expect(instance.state.secondsLeft).toBe(seconds * 1000)
+  [0, 1, 10, 42].forEach(seconds => {
+    const component = renderer.create(
+      <Countdown360 seconds={seconds}/>
+    )
+    const instance = component.getInstance()
+    expect(instance.state.totalSeconds).toBe(seconds)
+    expect(instance.state.secondsLeft).toBe(seconds * 1000)
+  })
 })
 
 test('Initialization of totalSeconds with negative value', () => {
@@ -20,6 +21,15 @@ test('Initialization of totalSeconds with negative value', () => {
   const instance = component.getInstance()
   expect(instance.state.totalSeconds).toBe(0)
   expect(instance.state.secondsLeft).toBe(0)
+})
+
+test('Smooth initialization', () => {
+  const seconds = 42
+  const component = renderer.create(
+    <Countdown360 seconds={seconds} smooth/>
+  )
+  const instance = component.getInstance()
+  expect(instance.interval).not.toBeNull()
 })
 
 test('Initialization with autoStart', () => {

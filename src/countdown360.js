@@ -60,8 +60,9 @@ class Countdown360 extends React.Component {
 
     const { smooth } = this.props
     const timerInterval = smooth ? 16 : 1000
+    this.handleTick()
     this.interval = setInterval(this.handleTick, timerInterval)
-    this.setState({ started: true, lastTick: new Date() })
+    this.setState({ started: true })
   }
 
   stop () {
