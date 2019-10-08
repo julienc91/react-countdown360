@@ -5,9 +5,10 @@ import styled from 'styled-components'
 class Countdown360 extends React.Component {
   constructor (props) {
     super(props)
+    const seconds = Math.max(props.seconds, 0)
     this.state = {
-      totalSeconds: props.seconds,
-      secondsLeft: props.seconds * 1000,
+      totalSeconds: seconds,
+      secondsLeft: seconds * 1000,
       started: false,
       lastTick: null
     }
@@ -25,14 +26,14 @@ class Countdown360 extends React.Component {
 
   componentWillUnmount () {
     clearInterval(this.interval)
+    this.interval = null
   }
 
   componentDidUpdate (prevProps) {
     const { smooth } = this.props
     if (prevProps.smooth !== smooth) {
       clearInterval(this.interval)
-      const timerInterval = smooth ? 16 : 1000
-      this.interval = setInterval(this.handleTick, timerInterval)
+      this.interval = setInterval(this.handleTick, smooth ? 16 : 1000)
     }
   }
 
@@ -69,6 +70,8 @@ class Countdown360 extends React.Component {
       return
     }
     clearInterval(this.interval)
+    this.interval = null
+
     this.handleTick()
     this.setState({ started: false, lastTick: null })
   }
