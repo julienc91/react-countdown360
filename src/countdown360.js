@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { timeFormatterSeconds } from './timeFormatters'
+import { unitFormatterSeconds } from './unitFormatters'
 
 class Countdown360 extends React.Component {
   constructor (props) {
@@ -99,7 +101,7 @@ class Countdown360 extends React.Component {
 
   render () {
     const { backgroundColor, borderUnfillColor, borderFillColor, borderWidth, smooth, width } = this.props
-    const { fontColor, fontFamily, fontSize, fontWeight, unit } = this.props
+    const { fontColor, fontFamily, fontSize, fontWeight, timeFormatter, unitFormatter } = this.props
 
     const { secondsLeft, totalSeconds } = this.state
 
@@ -143,13 +145,14 @@ class Countdown360 extends React.Component {
       text-transform: uppercase;
       font-size: ${fontSize / 3}px;`
 
-    const roundedSecondsLeft = Math.round(secondsLeft / 1000)
+    const value = timeFormatter(secondsLeft)
+    const unit = unitFormatter(value)
 
     return (
       <Wrapper>
         <Label>
-          {roundedSecondsLeft}<br />
-          <Unit>{roundedSecondsLeft === 1 ? unit[0] : unit[1]}</Unit>
+          {value}<br />
+          <Unit>{unit}</Unit>
         </Label>
       </Wrapper>
     )
@@ -167,7 +170,8 @@ Countdown360.defaultProps = {
   fontSize: 45,
   fontWeight: 700,
   smooth: false,
-  unit: ['second', 'seconds'],
+  timeFormatter: timeFormatterSeconds,
+  unitFormatter: unitFormatterSeconds,
   width: 200
 }
 
@@ -184,7 +188,8 @@ Countdown360.propTypes = {
   onComplete: PropTypes.func,
   seconds: PropTypes.number.isRequired,
   smooth: PropTypes.bool,
-  unit: PropTypes.arrayOf(PropTypes.string),
+  timeFormatter: PropTypes.func,
+  unitFormatter: PropTypes.func,
   width: PropTypes.number
 }
 

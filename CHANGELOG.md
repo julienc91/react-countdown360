@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0 - 10/10/2019
+
+Customize the value and unit shown on the countdown with the new props `timeFormatter`
+and `unitFormatter`.
+
+New:
+
+* customize the value and unit shown with the new props `timeFormatter` and `unitFormatter`
+
+Breaking:
+
+* the `unit` props has been removed and should be replaced with the new `unitFormatter` functionality
+
+
 ## 1.0.0 - 07/10/2019
 
 Complete refactoring. The `canvas` solution used by `jquery.countdown360` has been replaced with a full-CSS

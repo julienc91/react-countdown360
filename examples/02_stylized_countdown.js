@@ -9,7 +9,7 @@ const App = () => {
       fontFamily="monospace"
       fontSize={90}
       fontWeight={400}
-      unit={['sec', 'secs']}
+      unitFormatter={seconds => seconds === 1 ? 'sec' : 'secs'}
 
       borderFillColor="#527B9B"
       borderUnfillColor="#E4E9EC"

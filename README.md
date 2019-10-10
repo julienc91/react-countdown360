@@ -37,8 +37,45 @@ You can find some examples in the [`examples` directory](https://github.com/juli
 | `fontWeight`        | Number   | 700                     | Font weight for the label                       |
 | `onComplete`        | Function | `undefined`             | A callback called when the countdown is over    |
 | `smooth`            | Bookean  | `false`                 | Update the border once every second or smoothly |
-| `unit`              | Array    | `['second', 'seconds']` | The label of the unit (singular and plural)     |
+| `timeFormatter`     | Func     | `timeFormatterSeconds`  | A function that returns the value to display    |
+| `unitFormatter`     | Func     | `unitFormatterSeconds`  | A function that returns the unit to display     |
 | `width`             | Number   | 200                     | Width in pixels of the countdown to render      |
+
+
+#### Time Formatters
+
+You can customize the way the value on the countdown is shown by providing a custom `timeFormatter` function.
+
+By default, the value shown is the number of seconds remaining rounded to the nearest integer.
+
+A time formatter is a function that takes one single argument, being the number of milliseconds left, and returns
+the value to show on the countdown.
+
+For instance, the following function is a time formatter that always shows a value with at least two digits:
+
+```js
+const timeFormatterTwoDigits = timeLeft => {
+  return Math.round(timeLeft / 1000).toString().padStart(2, '0')
+}
+``` 
+
+
+#### Unit Formatters
+
+You can also customize the unit shown on the countdown by providing a custom `unitFormatter` function.
+
+A unit formatter is a function that takes one single argument, being the value shown on the countdown (as 
+returned by the given time formatter), and returns the unit to display.
+
+For instance, the following function is a unit formatter to show the number of seconds in Spanish:
+
+```js
+const unitFormatterSpanishSeconds = value => {
+  return value.toString() === '1' ? 'segundo' : 'segundos'
+}
+```
+
+Be careful when choosing your unit formatter that it matches the time formatter in use!
 
 
 ### Methods
