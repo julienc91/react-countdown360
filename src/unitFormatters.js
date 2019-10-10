@@ -2,7 +2,7 @@
 // shown on the countdown, and returns the label of the unit to display
 
 export const unitFormatterSeconds = seconds => {
-  return (seconds === 1 ? 'second' : 'seconds')
+  return (seconds.toString() === '1' ? 'second' : 'seconds')
 }
 
 export const unitFormatterBlank = () => ''
