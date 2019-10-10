@@ -10,13 +10,14 @@ This is a React implementation of John Schult's original [`jquery.countdown360`]
 
 You can find some examples in the [`examples` directory](https://github.com/julienc91/react-countdown360/tree/master/examples).
 
-| Basic example              | Stylized example              |
-| -------------------------- |-------------------------------|
-| ![Basic example][example1] | ![Stylized example][example2] |
+![Basic example][example1]
+![Stylized example][example2]
+![Formatter example][example3]
 
 
-[example1]: https://github.com/julienc91/react-countdown360/blob/master/doc/01_basic_countdown.gif "Baic example"
-[example2]: https://github.com/julienc91/react-countdown360/blob/master/doc/02_stylized_countdown.gif "Stylized example"
+[example1]: https://raw.githubusercontent.com/julienc91/react-countdown360/master/doc/01_basic_countdown.gif "Baic example"
+[example2]: https://raw.githubusercontent.com/julienc91/react-countdown360/master/doc/02_stylized_countdown.gif "Stylized example"
+[example3]: https://raw.githubusercontent.com/julienc91/react-countdown360/master/doc/05_custom_formatters_countdown.gif "Formatter example"
 
 
 ## Documentation
@@ -59,6 +60,13 @@ const timeFormatterTwoDigits = timeLeft => {
 }
 ``` 
 
+We already provide a few time formatters that you can import from the package.
+
+| Name                        | Description                                   | Examples                   | Suggested unit formatter |
+|-----------------------------|-----------------------------------------------|----------------------------|--------------------------|
+| `timeFormatterSeconds`      | Rounded number of seconds (default behaviour) | `0`, `1`, `12`             | `unitFormatterSeconds`   |
+| `timeFormatterDigitalClock` | `MM:SS`                                       | `00:00`, `00:12`, `01: 59` | `unitFormatterBlank`     |
+
 
 #### Unit Formatters
 
@@ -76,6 +84,14 @@ const unitFormatterSpanishSeconds = value => {
 ```
 
 Be careful when choosing your unit formatter that it matches the time formatter in use!
+
+We already provide a few unit formatters that you can import from the package.
+
+| Name                   | Description           | Examples            |
+|------------------------|-----------------------|---------------------|
+| `unitFormatterSeconds` | 'second' or 'seconds' | `second`, `seconds` |
+| `unitFormatterBlank`   | An empty string       |                     |
+
 
 
 ### Methods

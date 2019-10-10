@@ -4,15 +4,15 @@ import Countdown360 from 'react-countdown360'
 const App = () => {
   return (
     <Countdown360
-      backgroundColor="#9FB1BF"
+      backgroundColor="#9fb1bf"
       fontColor="#010204"
       fontFamily="monospace"
       fontSize={90}
       fontWeight={400}
       unitFormatter={seconds => seconds === 1 ? 'sec' : 'secs'}
 
-      borderFillColor="#527B9B"
-      borderUnfillColor="#E4E9EC"
+      borderFillColor="#527b9b"
+      borderUnfillColor="#e4eE9ec"
       borderWidth={90}
 
       smooth
