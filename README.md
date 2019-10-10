@@ -20,6 +20,24 @@ You can find some examples in the [`examples` directory](https://github.com/juli
 [example3]: https://raw.githubusercontent.com/julienc91/react-countdown360/master/doc/05_custom_formatters_countdown.gif "Formatter example"
 
 
+## Quickstart
+
+Install with `npm`:
+
+```
+npm install react-countdown360
+```
+
+Render your countdown:
+
+```js
+import Countdown360 from 'react-countdown360'
+
+const App = () => {
+  return <Countdown360 seconds={10} />
+}
+```
+
 ## Documentation
 
 ### Props
