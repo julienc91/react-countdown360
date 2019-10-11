@@ -1,3 +1,4 @@
+.idea/
 coverage/
 doc/
 examples/
@@ -5,6 +6,6 @@ node_modules/
 src/
 tests/
 .babelrc
-.eslintrc
+.eslintrc.json
 .gitignore
 .travis.yml
