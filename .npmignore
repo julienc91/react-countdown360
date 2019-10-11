@@ -1,7 +1,10 @@
-node_modules/
-src/
+coverage/
 doc/
 examples/
+node_modules/
+src/
 tests/
+.babelrc
+.eslintrc
 .gitignore
-
+.travis.yml
