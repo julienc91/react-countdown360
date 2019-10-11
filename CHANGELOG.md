@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 - 11/10/2019
+
+Fixes:
+
+* removed some unused files from the published package
+
+
 ## 1.1.0 - 10/10/2019
 
 Customize the value and unit shown on the countdown with the new props `timeFormatter`
