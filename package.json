@@ -5,6 +5,9 @@
   "homepage": "https://github.com/julienc91/react-countdown360",
   "repository": "https://github.com/julienc91/react-countdown360",
   "author": "Julien Chaumont <github@julienc.io>",
+  "bugs": {
+    "url": "https://github.com/julienc91/react-countdown360/issues"
+  },
   "license": "MIT",
   "keywords": [
     "react",
