@@ -32,6 +32,14 @@ test('Smooth initialization', () => {
   expect(instance.interval).not.toBeNull()
 })
 
+test('Clockwise rotation', () => {
+  const component = renderer.create(
+    <Countdown360 seconds={42} clockwise/>
+  )
+  const instance = component.getInstance()
+  expect(instance.interval).not.toBeNull()
+})
+
 test('Initialization with autoStart', () => {
   [true, false].forEach(autoStart => {
     const component = renderer.create(
