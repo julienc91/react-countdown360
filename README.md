@@ -50,6 +50,7 @@ const App = () => {
 | `borderFillColor`   | String   | `'#f11'`                | Color for the filled part of the border         |
 | `borderUnfillColor` | String   | `'#e6e2e7'`             | Color for the unfilled part of the border       |
 | `borderWidth`       | Number   | 20                      | Width in pixels of the border                   |
+| `clockwise`         | Bool     | `false`                 | Select the direction of rotation you prefer     |
 | `fontColor`         | String   | `'#111'`                | Font color for the label                        |
 | `fontFamily`        | String   | `'sans-serif'`          | The font to use for the label                   |
 | `fontSize`          | Number   | 45                      | Font size in pixels                             |

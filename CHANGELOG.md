@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 - 14/10/2019
+
+New:
+
+* you can now select the direction of rotation by using the new props `clockwise`
+
+
 ## 1.1.1 and 1.1.2 - 11/10/2019
 
 Fixes:
