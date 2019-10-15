@@ -50,13 +50,13 @@ const App = () => {
 | `borderFillColor`   | String   | `'#f11'`                | Color for the filled part of the border         |
 | `borderUnfillColor` | String   | `'#e6e2e7'`             | Color for the unfilled part of the border       |
 | `borderWidth`       | Number   | 20                      | Width in pixels of the border                   |
-| `clockwise`         | Bool     | `false`                 | Select the direction of rotation you prefer     |
+| `clockwise`         | Boolean  | `false`                 | Select the direction of rotation you prefer     |
 | `fontColor`         | String   | `'#111'`                | Font color for the label                        |
 | `fontFamily`        | String   | `'sans-serif'`          | The font to use for the label                   |
 | `fontSize`          | Number   | 45                      | Font size in pixels                             |
 | `fontWeight`        | Number   | 700                     | Font weight for the label                       |
 | `onComplete`        | Function | `undefined`             | A callback called when the countdown is over    |
-| `smooth`            | Bookean  | `false`                 | Update the border once every second or smoothly |
+| `smooth`            | Boolean  | `false`                 | Update the border once every second or smoothly |
 | `timeFormatter`     | Func     | `timeFormatterSeconds`  | A function that returns the value to display    |
 | `unitFormatter`     | Func     | `unitFormatterSeconds`  | A function that returns the unit to display     |
 | `width`             | Number   | 200                     | Width in pixels of the countdown to render      |
