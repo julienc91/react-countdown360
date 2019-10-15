@@ -100,7 +100,8 @@ class Countdown360 extends React.Component {
   }
 
   render () {
-    const { backgroundColor, borderUnfillColor, borderFillColor, borderWidth, clockwise, smooth, width } = this.props
+    const { clockwise, smooth, startingAngle, width } = this.props
+    const { backgroundColor, borderUnfillColor, borderFillColor, borderWidth } = this.props
     const { fontColor, fontFamily, fontSize, fontWeight, timeFormatter, unitFormatter } = this.props
 
     const { secondsLeft, totalSeconds } = this.state
@@ -113,8 +114,8 @@ class Countdown360 extends React.Component {
     }
 
     const factor = clockwise ? -1 : 1
-    const x = (angle >= 180 ? (90 - (360 - angle)) : 90) * factor
-    const y = (angle >= 180 ? 90 : (-90 + angle)) * factor
+    const x = ((angle >= 180 ? (90 - (360 - angle)) : 90) * factor) + startingAngle
+    const y = ((angle >= 180 ? 90 : (-90 + angle)) * factor) + startingAngle
 
     const Wrapper = styled.div`
       align-items: center;
@@ -172,6 +173,7 @@ Countdown360.defaultProps = {
   fontSize: 45,
   fontWeight: 700,
   smooth: false,
+  startingAngle: 0,
   timeFormatter: timeFormatterSeconds,
   unitFormatter: unitFormatterSeconds,
   width: 200
@@ -191,6 +193,7 @@ Countdown360.propTypes = {
   onComplete: PropTypes.func,
   seconds: PropTypes.number.isRequired,
   smooth: PropTypes.bool,
+  startingAngle: PropTypes.number,
   timeFormatter: PropTypes.func,
   unitFormatter: PropTypes.func,
   width: PropTypes.number
