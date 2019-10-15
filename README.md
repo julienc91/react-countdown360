@@ -57,6 +57,7 @@ const App = () => {
 | `fontWeight`        | Number   | 700                     | Font weight for the label                       |
 | `onComplete`        | Function | `undefined`             | A callback called when the countdown is over    |
 | `smooth`            | Boolean  | `false`                 | Update the border once every second or smoothly |
+| `startingAngle`     | Number   | 0                       | The angle at which the countdown should start   |
 | `timeFormatter`     | Func     | `timeFormatterSeconds`  | A function that returns the value to display    |
 | `unitFormatter`     | Func     | `unitFormatterSeconds`  | A function that returns the unit to display     |
 | `width`             | Number   | 200                     | Width in pixels of the countdown to render      |

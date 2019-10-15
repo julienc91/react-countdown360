@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0 - 15/10/2019
+
+New:
+
+* possibility to customize the angle at which the countdown starts with the new props `startingAngle`
+
+
 ## 1.2.0 - 14/10/2019
 
 New:
