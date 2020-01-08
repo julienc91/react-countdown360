@@ -29,11 +29,11 @@ npm install react-countdown360
 Render your countdown:
 
 ```js
-import Countdown360 from 'react-countdown360';
+import Countdown360 from 'react-countdown360'
 
 const App = () => {
-  return <Countdown360 seconds={10} />;
-};
+  return <Countdown360 seconds={10} />
+}
 ```
 
 ## Documentation
@@ -56,7 +56,7 @@ const App = () => {
 | `onComplete`        | Function | `undefined`            | A callback called when the countdown is over                   |
 | `smooth`            | Boolean  | `false`                | Update the border once every second or smoothly                |
 | `startingAngle`     | Number   | 0                      | The angle at which the countdown should start                  |
-| `startingSecond`    | Number   | undefined              | The second at which the countdown should start                 |
+| `startingSecond`    | Number   | `undefined`            | The second at which the countdown should start                 |
 | `timeFormatter`     | Func     | `timeFormatterSeconds` | A function that returns the value to display                   |
 | `unitFormatter`     | Func     | `unitFormatterSeconds` | A function that returns the unit to display                    |
 | `width`             | Number   | 200                    | Width in pixels of the countdown to render                     |
@@ -74,10 +74,8 @@ For instance, the following function is a time formatter that always shows a val
 
 ```js
 const timeFormatterTwoDigits = timeLeft => {
-  return Math.round(timeLeft / 1000)
-    .toString()
-    .padStart(2, "0");
-};
+  return Math.round(timeLeft / 1000).toString().padStart(2, "0")
+}
 ```
 
 We already provide a few time formatters that you can import from the package.
@@ -98,8 +96,8 @@ For instance, the following function is a unit formatter to show the number of s
 
 ```js
 const unitFormatterSpanishSeconds = value => {
-  return value.toString() === "1" ? "segundo" : "segundos";
-};
+  return value.toString() === "1" ? "segundo" : "segundos"
+}
 ```
 
 Be careful when choosing your unit formatter that it matches the time formatter in use!
