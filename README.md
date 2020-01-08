@@ -29,7 +29,7 @@ npm install react-countdown360
 Render your countdown:
 
 ```js
-import Countdown360 from "react-countdown360";
+import Countdown360 from 'react-countdown360';
 
 const App = () => {
   return <Countdown360 seconds={10} />;
@@ -43,7 +43,6 @@ const App = () => {
 | Name                | Type     | Default                | Description                                                    |
 | ------------------- | -------- | ---------------------- | -------------------------------------------------------------- |
 | `seconds`           | Number   | -                      | Number of seconds for the countdown                            |
-| `remainingSeconds`  | Number   | -                      | Number of remaining seconds from total seconds (seconds props) |
 | `autoStart`         | Boolean  | `true`                 | Start the countdown immediatly after rendering                 |
 | `backgroundColor`   | String   | `'#fff'`               | Color for the center of the circle                             |
 | `borderFillColor`   | String   | `'#f11'`               | Color for the filled part of the border                        |
@@ -57,6 +56,7 @@ const App = () => {
 | `onComplete`        | Function | `undefined`            | A callback called when the countdown is over                   |
 | `smooth`            | Boolean  | `false`                | Update the border once every second or smoothly                |
 | `startingAngle`     | Number   | 0                      | The angle at which the countdown should start                  |
+| `startingSecond`    | Number   | undefined              | The second at which the countdown should start                 |
 | `timeFormatter`     | Func     | `timeFormatterSeconds` | A function that returns the value to display                   |
 | `unitFormatter`     | Func     | `unitFormatterSeconds` | A function that returns the unit to display                    |
 | `width`             | Number   | 200                    | Width in pixels of the countdown to render                     |

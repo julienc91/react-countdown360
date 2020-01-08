@@ -201,18 +201,18 @@ test('Clear interval when unmounting', () => {
   expect(instance.interval).toBeNull()
 })
 
-test('Initialization of negative remaining seconds', () => {
+test('Initialization of negative starting second', () => {
   const seconds = 30
-  const remainingSeconds = -30
+  const startingSecond = -30
   const component = renderer.create(
-    <Countdown360 seconds={seconds} remainingSeconds={remainingSeconds} />
+    <Countdown360 seconds={seconds} startingSecond={startingSecond} />
   )
   const instance = component.getInstance()
   expect(instance.state.totalSeconds).toBe(seconds)
   expect(instance.state.secondsLeft).toBe(seconds * 1000)
 })
 
-test('No Initialization of remaining seconds', () => {
+test('No Initialization of starting second', () => {
   const seconds = 30
   const component = renderer.create(<Countdown360 seconds={seconds} />)
   const instance = component.getInstance()
@@ -220,24 +220,24 @@ test('No Initialization of remaining seconds', () => {
   expect(instance.state.secondsLeft).toBe(seconds * 1000)
 })
 
-test('Initialization of remaining seconds bigger than seconds', () => {
+test('Initialization of starting second bigger than seconds', () => {
   const seconds = 30
-  const remainingSeconds = 40
+  const startingSecond = 40
   const component = renderer.create(
-    <Countdown360 seconds={seconds} remainingSeconds={remainingSeconds} />
+    <Countdown360 seconds={seconds} startingSecond={startingSecond} />
   )
   const instance = component.getInstance()
   expect(instance.state.totalSeconds).toBe(seconds)
   expect(instance.state.secondsLeft).toBe(seconds * 1000)
 })
 
-test('Initialization of remaining seconds', () => {
+test('Initialization of starting second', () => {
   const seconds = 30
-  const remainingSeconds = 20
+  const startingSecond = 20
   const component = renderer.create(
-    <Countdown360 seconds={seconds} remainingSeconds={remainingSeconds} />
+    <Countdown360 seconds={seconds} startingSecond={startingSecond} />
   )
   const instance = component.getInstance()
   expect(instance.state.totalSeconds).toBe(seconds)
-  expect(instance.state.secondsLeft).toBe(remainingSeconds * 1000)
+  expect(instance.state.secondsLeft).toBe(startingSecond * 1000)
 })

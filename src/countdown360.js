@@ -9,8 +9,8 @@ class Countdown360 extends React.Component {
     super(props)
     const seconds = Math.max(props.seconds, 0)
     const secondsLeft =
-      props.remainingSeconds && props.remainingSeconds > 0
-        ? Math.min(seconds, props.remainingSeconds)
+      props.startingSecond && props.startingSecond > 0
+        ? Math.min(seconds, props.startingSecond)
         : seconds
 
     this.state = {
@@ -229,10 +229,10 @@ Countdown360.propTypes = {
   seconds: PropTypes.number.isRequired,
   smooth: PropTypes.bool,
   startingAngle: PropTypes.number,
+  startingSecond: PropTypes.number,
   timeFormatter: PropTypes.func,
   unitFormatter: PropTypes.func,
-  width: PropTypes.number,
-  remainingSeconds: PropTypes.number
+  width: PropTypes.number
 }
 
 export default Countdown360
