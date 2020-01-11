@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.1 - 11/01/2010
+
+New:
+
+* possibility to start the countdown at a specific moment with the new props `startingSecond`
+
+
 ## 1.3.0 - 15/10/2019
 
 New:
