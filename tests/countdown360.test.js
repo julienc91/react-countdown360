@@ -4,9 +4,7 @@ import Countdown360 from '../src'
 
 test('Initialization of totalSeconds', () => {
   [0, 1, 10, 42].forEach(seconds => {
-    const component = renderer.create(
-      <Countdown360 seconds={seconds}/>
-    )
+    const component = renderer.create(<Countdown360 seconds={seconds} />)
     const instance = component.getInstance()
     expect(instance.state.totalSeconds).toBe(seconds)
     expect(instance.state.secondsLeft).toBe(seconds * 1000)
@@ -15,9 +13,7 @@ test('Initialization of totalSeconds', () => {
 
 test('Initialization of totalSeconds with negative value', () => {
   const seconds = -42
-  const component = renderer.create(
-    <Countdown360 seconds={seconds}/>
-  )
+  const component = renderer.create(<Countdown360 seconds={seconds} />)
   const instance = component.getInstance()
   expect(instance.state.totalSeconds).toBe(0)
   expect(instance.state.secondsLeft).toBe(0)
@@ -25,17 +21,13 @@ test('Initialization of totalSeconds with negative value', () => {
 
 test('Smooth initialization', () => {
   const seconds = 42
-  const component = renderer.create(
-    <Countdown360 seconds={seconds} smooth/>
-  )
+  const component = renderer.create(<Countdown360 seconds={seconds} smooth />)
   const instance = component.getInstance()
   expect(instance.interval).not.toBeNull()
 })
 
 test('Clockwise rotation', () => {
-  const component = renderer.create(
-    <Countdown360 seconds={42} clockwise/>
-  )
+  const component = renderer.create(<Countdown360 seconds={42} clockwise />)
   const instance = component.getInstance()
   expect(instance.interval).not.toBeNull()
 })
@@ -43,7 +35,7 @@ test('Clockwise rotation', () => {
 test('Initialization with autoStart', () => {
   [true, false].forEach(autoStart => {
     const component = renderer.create(
-      <Countdown360 seconds={42} autoStart={autoStart}/>
+      <Countdown360 seconds={42} autoStart={autoStart} />
     )
     const instance = component.getInstance()
     expect(instance.state.started).toBe(autoStart)
@@ -52,7 +44,7 @@ test('Initialization with autoStart', () => {
 
 test('Start and stop', () => {
   const component = renderer.create(
-    <Countdown360 seconds={42} autoStart={false}/>
+    <Countdown360 seconds={42} autoStart={false} />
   )
   const instance = component.getInstance()
   expect(instance.state.started).toBe(false)
@@ -66,7 +58,7 @@ test('Start and stop', () => {
 
 test('Start and stop while already started or stopped', () => {
   const component = renderer.create(
-    <Countdown360 seconds={42} autoStart={true}/>
+    <Countdown360 seconds={42} autoStart />
   )
   const instance = component.getInstance()
   expect(instance.state.started).toBe(true)
@@ -82,7 +74,7 @@ test('Start and stop while already started or stopped', () => {
 
 test('Setup or clear interval when starting and stopping', () => {
   const component = renderer.create(
-    <Countdown360 seconds={42} autoStart={false}/>
+    <Countdown360 seconds={42} autoStart={false} />
   )
   const instance = component.getInstance()
   expect(instance.interval).toBeNull()
@@ -106,13 +98,19 @@ test('Update interval when changing smooth', () => {
     }
 
     render () {
-      return <Countdown360 seconds={42} smooth={this.state.smooth} ref={c => { this.c = c }}/>
+      return (
+        <Countdown360
+          seconds={42}
+          smooth={this.state.smooth}
+          ref={c => {
+            this.c = c
+          }}
+        />
+      )
     }
   }
 
-  const component = renderer.create(
-    <ChangeSmoothnessWrapper smooth={false}/>
-  )
+  const component = renderer.create(<ChangeSmoothnessWrapper smooth={false} />)
   const wrapper = component.getInstance()
   const instance = wrapper.c
   let interval = instance.interval
@@ -131,9 +129,7 @@ test('Update interval when changing smooth', () => {
 test('Extend timer', () => {
   [10, -10, -100].forEach(value => {
     const seconds = 42
-    const component = renderer.create(
-      <Countdown360 seconds={seconds}/>
-    )
+    const component = renderer.create(<Countdown360 seconds={seconds} />)
     const instance = component.getInstance()
     instance.extendTimer(value)
     const expected = Math.max(seconds + value, 0)
@@ -146,14 +142,15 @@ test('Add seconds', () => {
   [100, 10, -10, -100].forEach(value => {
     const seconds = 42
     const secondsLeft = 30000
-    const component = renderer.create(
-      <Countdown360 seconds={seconds}/>
-    )
+    const component = renderer.create(<Countdown360 seconds={seconds} />)
     const instance = component.getInstance()
     instance.state.secondsLeft = secondsLeft
 
     instance.addSeconds(value)
-    const expected = Math.max(Math.min(secondsLeft + value * 1000, seconds * 1000), 0)
+    const expected = Math.max(
+      Math.min(secondsLeft + value * 1000, seconds * 1000),
+      0
+    )
 
     expect(instance.state.secondsLeft).toBe(expected)
   })
@@ -168,7 +165,7 @@ test('Handle tick and finish', () => {
 
   const instance = component.getInstance()
   const secondsToRemove = 10
-  let lastTick = new Date((new Date()) - secondsToRemove * 1000)
+  let lastTick = new Date(new Date() - secondsToRemove * 1000)
   instance.setState({ lastTick })
 
   instance.handleTick()
@@ -176,7 +173,7 @@ test('Handle tick and finish', () => {
   expect(instance.state.secondsLeft).toBeGreaterThan(0)
   expect(callback).not.toHaveBeenCalled()
 
-  lastTick = new Date((new Date()) - seconds * 1000)
+  lastTick = new Date(new Date() - seconds * 1000)
   instance.setState({ lastTick })
 
   instance.handleTick()
@@ -187,7 +184,7 @@ test('Handle tick and finish', () => {
 test('Handle tick while stopped', () => {
   const seconds = 42
   const component = renderer.create(
-    <Countdown360 seconds={seconds} autoStart={false}/>
+    <Countdown360 seconds={seconds} autoStart={false} />
   )
   const instance = component.getInstance()
 
@@ -197,11 +194,50 @@ test('Handle tick while stopped', () => {
 })
 
 test('Clear interval when unmounting', () => {
-  const component = renderer.create(
-    <Countdown360 seconds={42}/>
-  )
+  const component = renderer.create(<Countdown360 seconds={42} />)
   const instance = component.getInstance()
   expect(instance.interval).not.toBeNull()
   component.unmount()
   expect(instance.interval).toBeNull()
+})
+
+test('Initialization of negative starting second', () => {
+  const seconds = 30
+  const startingSecond = -30
+  const component = renderer.create(
+    <Countdown360 seconds={seconds} startingSecond={startingSecond} />
+  )
+  const instance = component.getInstance()
+  expect(instance.state.totalSeconds).toBe(seconds)
+  expect(instance.state.secondsLeft).toBe(seconds * 1000)
+})
+
+test('No Initialization of starting second', () => {
+  const seconds = 30
+  const component = renderer.create(<Countdown360 seconds={seconds} />)
+  const instance = component.getInstance()
+  expect(instance.state.totalSeconds).toBe(seconds)
+  expect(instance.state.secondsLeft).toBe(seconds * 1000)
+})
+
+test('Initialization of starting second bigger than seconds', () => {
+  const seconds = 30
+  const startingSecond = 40
+  const component = renderer.create(
+    <Countdown360 seconds={seconds} startingSecond={startingSecond} />
+  )
+  const instance = component.getInstance()
+  expect(instance.state.totalSeconds).toBe(seconds)
+  expect(instance.state.secondsLeft).toBe(seconds * 1000)
+})
+
+test('Initialization of starting second', () => {
+  const seconds = 30
+  const startingSecond = 20
+  const component = renderer.create(
+    <Countdown360 seconds={seconds} startingSecond={startingSecond} />
+  )
+  const instance = component.getInstance()
+  expect(instance.state.totalSeconds).toBe(seconds)
+  expect(instance.state.secondsLeft).toBe(startingSecond * 1000)
 })
