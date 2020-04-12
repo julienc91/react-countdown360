@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.2 - 12/04/2020
+
+Bumped dependencies
+
+
 ## 1.3.1 - 11/01/2010
 
 New:
